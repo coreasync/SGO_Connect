@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bg">#232229</color>
+    <color name="bg_btn">#2D2C36</color>
+    <color name="bg_btn_2">#363542</color>
+    <color name="text_color">#D8DEE9</color>
+    <color name="btn_warning_main_menu">#FFD740</color>
+    <color name="btn_gen_token_main_menu">#8C9EFF</color>
+</resources>
