@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    kotlin("kapt") // добавьте kapt
+    id("dagger.hilt.android.plugin") // добавьте плагин Hilt
 }
+
 
 android {
     namespace = "ru.niktoizniotkyda.netschooltokenapp"
@@ -39,6 +42,19 @@ android {
 }
 
 dependencies {
+    kapt("com.google.dagger:hilt-android-compiler:2.56.2")
+
+    implementation("javax.inject:javax.inject:1")
+    implementation("com.google.code.gson:gson:2.13.1")
+
+    implementation("androidx.datastore:datastore-core:1.1.7")
+    implementation("androidx.datastore:datastore-preferences:1.1.7")
+    implementation("androidx.datastore:datastore-preferences-core:1.1.7")
+
+    implementation("com.google.dagger:dagger:2.56.2")
+    implementation("com.google.dagger:hilt-core:2.56.2")
+    implementation("com.google.dagger:hilt-android:2.56.2")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
