@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login_navigation">
+    <fragment
+        android:id="@+id/chooseUserIdFragment"
+        android:name="ru.niktoizniotkyda.netschooltokenapp.auth.ChooseUserIdFragment"
+        android:label="Выбери пользователя">
+        <action
+            android:id="@+id/action_chooseUserIdFragment_to_mainActivity"
+            app:destination="@id/main" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gosuslugiResultFragment"
+        android:name="ru.niktoizniotkyda.netschooltokenapp.auth.GosuslugiResult"
+        android:label="" >
+        <action
+            android:id="@+id/action_gosuslugiResultFragment_to_chooseUserIdFragment"
+            app:destination="@id/chooseUserIdFragment" />
+        <action
+            android:id="@+id/action_gosuslugiResultFragment_to_mainActivity"
+            app:destination="@id/main" />
+    </fragment>
+</navigation>

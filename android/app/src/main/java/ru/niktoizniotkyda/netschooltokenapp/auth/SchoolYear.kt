@@ -18,7 +18,6 @@ package ru.niktoizniotkyda.netschooltokenapp.auth
 
 
 import com.google.gson.annotations.SerializedName
-import ru.niktoizniotkyda.netschooltokenapp.auth.FilterUiEntity
 
 data class SchoolYear(
     @SerializedName("endDate")

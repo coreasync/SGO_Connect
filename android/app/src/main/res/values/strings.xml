@@ -3,9 +3,12 @@
     <string name="activity_main_menu_source_code">Исходный код</string>
     <string name="activity_main_menu_warning">READ ME</string>
     <string name="activity_main_menu_gen_token">Сгенерировать токен</string>
-    <string name="dialog_instruction_gen_token_info">Генерация токена проходит в 3 этапа\n1. Определения сервера СГО\n2. Авторизация в ЕСИА (Гос. Услуги)\n3. Вход в СГО и получения токена\n\nСЕРВИС ВЗАИМОДЕЙСТВУЕТ ИСКЛЮЧИТЕЛЬНО С СГО, ваши гос. услуги в полной безопасности, вы можете сами в этом убедится так как весь код открыт и распространяется по лицензии GNU GPL v3</string>
+    <string name="dialog_instruction_gen_token_info">Генерация токена проходит в 3 этапа\n1. Определения сервера СГО\n2. Авторизация в ЕСИА (Гос. Услуги)\n3. Вход в СГО и получения токена\n\nСЕРВИС ВЗАИМОДЕЙСТВУЕТ ИСКЛЮЧИТЕЛЬНО С СГО, ваши гос. услуги в полной безопасности, весь код открыт и распространяется по лицензии GNU GPL v3</string>
     <string name="dialog_instruction_gen_token_auth">Авторизоваться</string>
     <string name="dialog_instruction_gen_token_how_does_this_work">Как это работает?</string>
     <string name="dialog_warning_text">Не передавайте свой токен третьим лицам и непроверенным веб-ресурсам. Это может обернуться потерей доступа к СГО</string>
     <string name="dialog_warning_btn_ok">ОК</string>
+    <string name="github_url">https://github.com/EduDev-s/NetSchoolToken/</string>
+    <string name="region_url">https://sgo.edu-74.ru/</string>
+    <string name="select_user">Выберите пользователя</string>
 </resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="warning_dialog_size">300dp</dimen>
-    <dimen name="instruction_gen_token_dialog_size_width">375dp</dimen>
-    <dimen name="instruction_gen_token_dialog_size_height">445dp</dimen>
+    <dimen name="instruction_gen_token_dialog_size_width">325dp</dimen>
 </resources>
 

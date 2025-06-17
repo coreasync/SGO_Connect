@@ -18,13 +18,10 @@ package ru.niktoizniotkyda.netschooltokenapp.auth
 
 
 import com.google.gson.annotations.SerializedName
-import ru.niktoizniotkyda.netschooltokenapp.auth.Clazz
 
-data class OrganizationInfo(
-    @SerializedName("classes")
-    val clazzez: List<Clazz>,
-    @SerializedName("isActive")
-    val isActive: Boolean,
-    @SerializedName("organization")
-    val organization: Organization
+data class School(
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("name")
+    val name: String
 )

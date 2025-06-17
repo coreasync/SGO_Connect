@@ -16,14 +16,10 @@
 
 package ru.niktoizniotkyda.netschooltokenapp.auth
 
-
-import com.google.gson.annotations.SerializedName
-
-data class Organization(
-    @SerializedName("id")
-    val id: Int,
-    @SerializedName("isAddSchool")
-    val isAddSchool: Boolean,
-    @SerializedName("name")
-    val name: String
+data class UserUIEntity(
+    val userId: Int?,
+    val gosuslugiUserId: String?,
+    val profilePhoto: Int?,
+    val name: String,
+    val login: String?
 )

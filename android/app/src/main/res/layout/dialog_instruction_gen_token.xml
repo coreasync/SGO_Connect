@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/instruction_gen_token_dialog_size_width"
-    android:layout_height="@dimen/instruction_gen_token_dialog_size_height"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     android:padding="24dp"
     android:background="@drawable/rounded_16"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <ImageView
         android:layout_width="64dp"
@@ -18,29 +18,28 @@
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:enabled="false"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dialog_instruction_gen_token_info"
         android:textColor="@color/text_color"
         android:textSize="16sp"
         android:gravity="center"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="30dp" />
 
     <Button
         android:id="@+id/buttonAuth"
-        android:textColor="@color/text_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/bg_btn_2"
+        android:textColor="@color/text_color"
         android:text="@string/dialog_instruction_gen_token_auth" />
 
     <Button
         android:id="@+id/buttonHowDoesThisWork"
-        android:textColor="@color/text_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/bg_btn_2"
+        android:textColor="@color/text_color"
         android:text="@string/dialog_instruction_gen_token_how_does_this_work" />
 
 </LinearLayout>

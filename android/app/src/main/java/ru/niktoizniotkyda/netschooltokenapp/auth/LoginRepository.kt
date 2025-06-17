@@ -14,12 +14,9 @@
  *  limitations under the License.
  */
 
-package ru.niktoizniotkyda.netschooltokenapp.auth
-
+package  ru.niktoizniotkyda.netschooltokenapp.auth
 
 interface LoginRepository {
-
-    suspend fun login()
-
-    suspend fun login(deviceCode: Int)
+    suspend fun login(deviceCode: Int): String
+//    suspend fun login()
 }

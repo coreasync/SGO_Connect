@@ -16,12 +16,28 @@
 
 package ru.niktoizniotkyda.netschooltokenapp.auth
 
+import retrofit2.http.GET
+import retrofit2.http.Query
 
-import com.google.gson.annotations.SerializedName
+interface UtilsApi {
+    @GET("api/mobile/education")
+    suspend fun getEducation(
+        @Query("studentId") studentId: Int,
+    ): List<EducationInfo>
 
-data class Clazz(
-    @SerializedName("classId")
-    val classId: Int,
-    @SerializedName("className")
-    val className: String
-)
+    @GET("api/mobile/subjects")
+    suspend fun getSubjects(
+        @Query("studentId") studentId: Int,
+        @Query("schoolYearId") yearId: Int,
+    ): List<Subject>
+
+    @GET("api/mobile/terms")
+    suspend fun getTerms(
+        @Query("studentId") studentId: Int,
+        @Query("schoolYearId") yearId: Int
+    ): List<Term>
+
+
+    @GET("api/mobile/users?v=2")
+    suspend fun getUsers(): List<UserInfo>
+}

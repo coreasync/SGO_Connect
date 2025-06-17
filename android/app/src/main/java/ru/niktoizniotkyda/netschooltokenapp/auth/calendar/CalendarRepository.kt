@@ -14,26 +14,18 @@
  *  limitations under the License.
  */
 
-package ru.niktoizniotkyda.netschooltokenapp.auth
+package ru.niktoizniotkyda.netschooltokenapp.auth.calendar
 
-import androidx.datastore.preferences.core.Preferences
-import kotlinx.coroutines.flow.Flow
 
-interface AppSettings {
-    fun <T> getValue(value: Preferences.Key<T>): Flow<T?>
 
-    suspend fun <T> setValue(
-        value: Preferences.Key<T>,
-        key: T,
-    )
+interface CalendarRepository {
+    fun getNow(): Long
+    fun dateToRussianWithTime(date: String): String
+    fun dateFormat(date: String): String
+    fun dateToRussian(date: String): String
+    fun isNowBetween(dateStart: String, dateEnd: String): Boolean
+    fun dateToTime(date: String): String
+    fun getWeeksList(): List<WeekStartEndEntity>
 
-    suspend fun getStudentId(): Int
-
-    suspend fun saveToken(
-        token: String,
-        refreshToken: String,
-        timeToRefresh: Long
-    )
-
-    suspend fun logout()
+    fun currentWeekStart(): String
 }

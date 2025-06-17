@@ -1,40 +1,68 @@
 package ru.niktoizniotkyda.netschooltokenapp.auth
 
-/*
- * Copyright 2024 Eugene Menshenin
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-
 import com.google.gson.annotations.SerializedName
 
-data class UserInfo(
-    @SerializedName("children")
-    val children: Any,
-    @SerializedName("firstName")
-    val firstName: String,
+data class Clazz(
+    @SerializedName("classId")
+    val classId: Int,
+    @SerializedName("className")
+    val className: String
+)
+
+data class Organization(
     @SerializedName("id")
     val id: Int,
+    @SerializedName("isAddSchool")
+    val isAddSchool: Boolean,
+    @SerializedName("name")
+    val name: String
+)
+
+data class OrganizationInfo(
+    @SerializedName("classes")
+    val classes: List<Clazz>,
+    @SerializedName("isActive")
+    val isActive: Boolean,
+    @SerializedName("organization")
+    val organization: Organization
+)
+
+data class Children(
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("firstName")
+    val firstName: String,
+    @SerializedName("nickName")
+    val nickName: String,
+    @SerializedName("loginName")
+    val loginName: String,
     @SerializedName("isParent")
     val isParent: Boolean,
     @SerializedName("isStaff")
     val isStaff: Boolean,
     @SerializedName("isStudent")
     val isStudent: Boolean,
-    @SerializedName("loginName")
-    val loginName: String,
+    @SerializedName("organizations")
+    val organizations: List<OrganizationInfo>
+)
+
+data class UserInfo(
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("firstName")
+    val firstName: String,
     @SerializedName("nickName")
     val nickName: String,
+    @SerializedName("loginName")
+    val loginName: String,
+    @SerializedName("isParent")
+    val isParent: Boolean,
+    @SerializedName("isStaff")
+    val isStaff: Boolean,
+    @SerializedName("isStudent")
+    val isStudent: Boolean,
     @SerializedName("organizations")
-    val organizationInfos: List<OrganizationInfo>
+    val organizations: List<OrganizationInfo>,
+    @SerializedName("children")
+    val children: List<Children>? = null
 )
