@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  BACKEND_IMAGE_NAME: ${{ github.repository }}
+  BACKEND_IMAGE_NAME: "${{ github.repository }}Backend"
   REPOSITORY_OWNER_LOWERCASE: coreasync
 
 jobs:
@@ -63,11 +63,11 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.BACKEND_IMAGE_NAME }}
 
-      - name: "Build and push Docker image [BACKEND]"
+      - name: "Build and push Docker image [${{ env.BACKEND_IMAGE_NAME }}]"
         uses: docker/build-push-action@v6.10.0
         with:
           push: true
           context: ./backend/
           tags: |
-            ghcr.io/${{ env.REPOSITORY_OWNER_LOWERCASE }}/backend:latest
-            ghcr.io/${{ env.REPOSITORY_OWNER_LOWERCASE }}/backend:${{ github.sha }}
+            ghcr.io/${{ env.REPOSITORY_OWNER_LOWERCASE }}/${{ env.BACKEND_IMAGE_NAME }}:latest
+            ghcr.io/${{ env.REPOSITORY_OWNER_LOWERCASE }}/${{ env.BACKEND_IMAGE_NAME }}:${{ github.sha }}
