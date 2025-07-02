@@ -1,0 +1,73 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    types: [opened, reopened]
+  push: 
+
+env:
+  REGISTRY: ghcr.io
+  BACKEND_IMAGE_NAME: ${{ github.repository }}
+  REPOSITORY_OWNER_LOWERCASE: coreasync
+
+jobs:
+  format_and_lint:
+    name: "Format & Lint [Ruff]"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4.2.2
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: "Install Ruff"
+        run: pip install ruff
+
+      - name: "Run Ruff"
+        run: ruff format -q backend/src; ruff check -q backend/src  
+
+  build:
+    if:  ${{ github.ref_name }} == ${{ env.REF_DEFAULT_NAME }}
+    name: "Build & Publish"
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
+
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4.2.2
+
+      - name: "Set up QEMU"
+        uses: docker/setup-qemu-action@v3.2.0
+        
+      - name: "Set up Docker Buildx"
+        uses: docker/setup-buildx-action@v3.8.0
+      
+      - name: "Login to GitHub Registry"
+        uses: docker/login-action@v3.3.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5.6.1
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.BACKEND_IMAGE_NAME }}
+
+      - name: "Build and push Docker image [BACKEND]"
+        uses: docker/build-push-action@v6.10.0
+        with:
+          push: true
+          context: ./backend/
+          tags: |
+            ghcr.io/${{ env.REPOSITORY_OWNER_LOWERCASE }}/backend:latest
+            ghcr.io/${{ env.REPOSITORY_OWNER_LOWERCASE }}/backend:${{ github.sha }}
