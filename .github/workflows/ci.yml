@@ -7,8 +7,9 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  BACKEND_IMAGE_NAME: "${{ github.repository }}Backend"
+  REPOSITORY_NAME: netschooltoken
   REPOSITORY_OWNER_LOWERCASE: coreasync
+  BACKEND_IMAGE_NAME: backend
 
 jobs:
   format_and_lint:
@@ -30,9 +31,11 @@ jobs:
         run: ruff format -q backend/src; ruff check -q backend/src  
 
   build:
-    if:  ${{ github.ref_name }} == ${{ vars.REF_DEFAULT_NAME }}
     name: "Build & Publish"
     runs-on: ubuntu-latest
+    
+    if:  ${{ github.ref_name }} == ${{ vars.REF_DEFAULT_NAME }}
+    needs: format_and_lint
 
     permissions:
       contents: read
@@ -69,5 +72,5 @@ jobs:
           push: true
           context: ./backend/
           tags: |
-            ghcr.io/${{ env.REPOSITORY_OWNER_LOWERCASE }}/${{ env.BACKEND_IMAGE_NAME }}:latest
-            ghcr.io/${{ env.REPOSITORY_OWNER_LOWERCASE }}/${{ env.BACKEND_IMAGE_NAME }}:${{ github.sha }}
+            ghcr.io/${{ env.REPOSITORY_OWNER_LOWERCASE }}/${{ env.REPOSITORY_NAME }}-${{ env.BACKEND_IMAGE_NAME }}:latest
+            ghcr.io/${{ env.REPOSITORY_OWNER_LOWERCASE }}/${{ env.REPOSITORY_NAME }}-${{ env.BACKEND_IMAGE_NAME }}:${{ github.sha }}
