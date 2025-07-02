@@ -3,7 +3,7 @@ services:
     image: postgres:17.2-alpine3.20
     container_name: DATABASE
     env_file:
-      - .env
+      - .env.dev
     command: >
       postgres -c max_connections=2048
                -c shared_preload_libraries=pg_stat_statements
@@ -37,7 +37,7 @@ services:
   backend:
     container_name: BACKEND
     env_file:
-      - .env
+      - .env.dev
     build:
       context: .
     depends_on:

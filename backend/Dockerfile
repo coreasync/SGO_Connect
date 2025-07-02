@@ -1,5 +1,7 @@
 FROM ghcr.io/astral-sh/uv:alpine3.21
 
+RUN apk add gcc musl-dev linux-headers
+
 ENV WORKDIR=/app/
 ENV PYTHONUNBUFFERED=1 PYTHONPATH=${WORKDIR}
 ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
@@ -13,4 +15,5 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 COPY ./src ${WORKDIR}src
 
-CMD ["uv", "run", "src/main.py"]
+
+CMD [".venv/bin/python3", "src/main.py"]

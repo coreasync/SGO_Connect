@@ -3,11 +3,83 @@ name = "backend"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = "~=3.13"
 dependencies = [
     "asyncpg>=0.30.0",
+    "cryptography>=45.0.4",
     "fastapi[standard]>=0.115.12",
+    "loguru>=0.7.3",
+    "psutil>=7.0.0",
     "pydantic-settings>=2.9.1",
     "sqlalchemy[asyncio]>=2.0.41",
+    "structlog>=25.4.0",
     "uvicorn>=0.34.3",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+fix = true
+unsafe-fixes = false
+
+select = ["ALL"]
+
+ignore = [
+    "ANN",
+    "A001",
+    "A002",
+    "EM102",
+    "TRY003",
+    "PGH003",
+    "PLR0913",
+    "EM101",
+    "BLE001",
+    "C901",
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107"
+]
+
+exclude = [
+    ".git",
+    "__pycache__",
+    ".venv",
+    "tests"
+]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.isort]
+force-single-line = true
+known-first-party = ["src"]
+
+[tool.ruff.mccabe]
+max-complexity = 5
+
+[tool.ruff.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends"]
+
+[tool.ruff.flake8-quotes]
+inline-quotes = "double"
+multiline-quotes = "double"
+docstring-quotes = "double"
+avoid-escape = true
+
+[tool.ruff.flake8-import-conventions]
+[tool.ruff.flake8-import-conventions.aliases]
+"numpy" = "np"
+"pandas" = "pd"
+
+[tool.ruff.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.12.1",
 ]
