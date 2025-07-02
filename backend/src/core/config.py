@@ -73,4 +73,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()  # type: ignore
-settings.SALT = hashlib_sha256(f"{settings.SECRET_KEY}".encode()).digest()[:16]
+settings.SALT = hashlib_sha256(f"{settings.SALT}".encode()).digest()[:16]
