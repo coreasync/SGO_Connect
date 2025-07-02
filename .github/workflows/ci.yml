@@ -30,7 +30,7 @@ jobs:
         run: ruff format -q backend/src; ruff check -q backend/src  
 
   build:
-    if:  ${{ github.ref_name }} == ${{ env.REF_DEFAULT_NAME }}
+    if:  ${{ github.ref_name }} == ${{ vars.REF_DEFAULT_NAME }}
     name: "Build & Publish"
     runs-on: ubuntu-latest
 
