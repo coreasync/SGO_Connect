@@ -44,7 +44,10 @@ def declarative_nested_model_constructor(self: Any, **kwargs: Any) -> None:
 
 class Database:
     def __init__(self):
-        self.engine = create_async_engine(settings.DATABASE_URL, future=True)
+        self.engine = create_async_engine(settings.DATABASE_URL,
+                                          future=True,
+                                          pool_size=settings.DATABASE_POOL_SIZE,
+                                          max_overflow=8)
         self.Base = self._get_base()
 
     def _get_base(self):

@@ -4,7 +4,7 @@ from hashlib import sha256 as hashlib_sha256
 from pydantic import computed_field
 from pydantic_settings import BaseSettings
 
-_PROJECT_NAME = "NetSchoolToken"
+_PROJECT_NAME = "SGO Connect"
 _VERSION = "0.0.1a"
 _API_VERSION_PREFIX = "/v1"
 
@@ -70,6 +70,7 @@ class Settings(BaseSettings):
     POSTGRES_HOST: str
     POSTGRES_PORT: int
     POSTGRES_DB: str
+    DATABASE_POOL_SIZE: int = 32
 
 
 settings = Settings()  # type: ignore

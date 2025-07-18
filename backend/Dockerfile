@@ -1,6 +1,7 @@
-FROM ghcr.io/astral-sh/uv:alpine3.21
+FROM python:3.13.3-alpine3.22
 
-RUN apk add gcc musl-dev linux-headers
+RUN apk add gcc musl-dev linux-headers; \
+	python3 -m pip install uv==0.7
 
 ENV WORKDIR=/app/
 ENV PYTHONUNBUFFERED=1 PYTHONPATH=${WORKDIR}

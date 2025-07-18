@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option java_package = "ru.niktoizniotkyda.netschooltokenapp.data";
+option java_package = "ru.niktoizniotkyda.sgo_connectapp.data";
 option java_multiple_files = true;
 
 message Class {
@@ -20,26 +20,20 @@ message OrganizationInfo {
  Organization organization = 3;
 }
 
-message Children {
- int64 children_id = 1;
+message Child {
+ int64 child_id = 1;
  string first_name = 2;
  string nick_name = 3;
- string login_name = 5;
- bool is_parent = 6;
- bool is_staff = 7;
- bool is_student = 8;
- repeated OrganizationInfo organizations = 9;
-}
-
-message ChildOrNull {
- oneof child_or_null {
-  Children child = 1;
- }
+ string login_name = 4;
+ bool is_parent = 5;
+ bool is_staff = 6;
+ bool is_student = 7;
+ repeated OrganizationInfo organizations = 8;
 }
 
 message UserData {
  int32 user_id = 1;
- repeated ChildOrNull children = 2;
+ repeated Child children = 2;
  string first_name = 3;
  string nick_name = 4;
  string login_name = 5;
@@ -53,7 +47,7 @@ message TokenData {
  string id = 1;
  string token = 2;
  string refresh_token = 3;
- int64 time_to_refresh = 4;
+ string time_to_refresh = 4;
  repeated UserData users = 5;
 }
 

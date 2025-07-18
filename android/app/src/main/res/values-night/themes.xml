@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Netschooltoken" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.SGO_Connect" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 </resources>

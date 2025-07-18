@@ -1,4 +1,4 @@
-# NetSchoolToken Backend
+# SGO Connect Backend
 
 A modern, robust backend service for token management, built with **FastAPI**, **SQLAlchemy**, and **PostgreSQL**.  
 This project is designed for scalability, security, and productivity.
@@ -53,8 +53,8 @@ All configuration is managed via environment variables and the [`src/core/config
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/coreasync/NetSchoolToken/
-   cd NetSchoolToken/backend
+   git clone https://github.com/coreasync/SGO_Connect/
+   cd SGO_Connect/backend
    uv sync
    ```
 

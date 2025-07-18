@@ -7,12 +7,12 @@ ModelType = TypeVar("ModelType", bound=DeclarativeBase)
 CreateSchemaType = TypeVar("CreateSchemaType", bound=BaseModel)
 
 
-def pydantic_to_sqlalchemy[CreateSchemaType: BaseModel, ModelType: DeclarativeBase](
-    pydantic_instance: type[CreateSchemaType],
+def pydantic_to_sqlalchemy(
+    pydantic_instance: CreateSchemaType,
     sqlalchemy_model: type[ModelType],
 ) -> ModelType:
     try:
-        data = pydantic_instance.model_dump(exclude_unsest=True, exclude_none=True)  # type: ignore
+        data = pydantic_instance.model_dump(exclude_unset=True, exclude_none=True)  # type: ignore
         return sqlalchemy_model(**data)
     except Exception as e:
         raise ValueError(

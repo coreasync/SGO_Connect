@@ -14,10 +14,10 @@ protobuf {
         all().forEach { task ->
             task.builtins {
                 create("java") {
-                    option("lite")
+                    option("")
                 }
                 create("kotlin") {
-                    option("lite")
+                    option("")
                 }
             }
         }
@@ -25,12 +25,12 @@ protobuf {
 }
 
 android {
-    namespace = "ru.niktoizniotkyda.netschooltokenapp"
+    namespace = "ru.niktoizniotkyda.sgo_connectapp"
     //noinspection GradleDependency
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "ru.niktoizniotkyda.netschooltokenapp"
+        applicationId = "ru.niktoizniotkyda.sgo_connectapp"
         minSdk = 26
         //noinspection OldTargetApi
         targetSdk = 34
@@ -65,8 +65,10 @@ android {
 
 
 dependencies {
-    implementation("com.google.protobuf:protobuf-kotlin-lite:3.24.0")
-    implementation("com.google.protobuf:protobuf-javalite:3.24.0")
+    implementation("com.google.protobuf:protobuf-kotlin:4.31.1")
+    implementation("com.google.protobuf:protobuf-java:4.31.1")
+    implementation("com.google.protobuf:protobuf-java-util:4.31.1")
+
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -82,7 +84,6 @@ dependencies {
     implementation("com.google.code.gson:gson:2.13.1")
 
     implementation("androidx.datastore:datastore-core:1.1.7")
-    implementation("com.google.protobuf:protobuf-javalite:4.31.1")
     implementation("androidx.datastore:datastore-preferences:1.1.7")
     implementation("androidx.datastore:datastore-preferences-core:1.1.7")
 

@@ -1,4 +1,8 @@
 package ru.niktoizniotkyda.sgo_connectapp.api
 
-class SGOConnectRepository {
+
+import ru.niktoizniotkyda.sgo_connectapp.data.TokenData
+
+interface SGOConnectRepository {
+    suspend fun createToken(tokenInput: TokenData): Result<TokenID>
 }

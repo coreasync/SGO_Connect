@@ -4,18 +4,109 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GenTokenActivity"
-    android:background="@color/bg">
+    android:background="@color/bg"
+    tools:context=".GenTokenActivity">
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/loading"
+    <TextView
+        android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/our_token"
+        android:textColor="@color/text_color"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/tokenCard"
+        app:layout_constraintEnd_toEndOf="@+id/tokenCard"
+        app:layout_constraintStart_toStartOf="@+id/tokenCard"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/tokenCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="12dp"
+        app:cardBackgroundColor="@color/bg_btn"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:strokeWidth="2dp"
+        android:visibility="visible"
+        app:strokeColor="@color/divider"
+        app:layout_constraintTop_toBottomOf="@id/textTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/loading">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textToken"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/text_color"
+            android:fontFamily="monospace"
+            android:textSize="21sp"
+            android:padding="6dp"
+            android:layout_margin="8dp"
+            tools:text="9857da1e-879a-45be-add7-6ede6649c6ad" />
+
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:background="@color/divider"
+            android:layout_marginHorizontal="0dp"/>
+
+        <ImageButton
+            android:id="@+id/btnCopy"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/copy_token"
+            android:focusable="true"
+            android:src="@drawable/ic_copy"
+            app:tint="#E3E3E3" />
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/textTokenValidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:alpha="0.85"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        tools:text="Токен действителен 5 минут"
+        app:layout_constraintEnd_toEndOf="@+id/tokenCard"
+        app:layout_constraintStart_toStartOf="@+id/tokenCard"
+        app:layout_constraintTop_toBottomOf="@id/tokenCard" />
+
+
+<com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/loading"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
         android:indeterminate="true"
+        app:indicatorColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:indicatorColor="@color/text_color"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tokenCard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "netschooltoken"
+rootProject.name = "SGO_Connect"
 include(":app")
  

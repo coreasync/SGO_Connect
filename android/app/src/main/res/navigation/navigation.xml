@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/webViewLogin"
-        android:name="ru.niktoizniotkyda.netschooltokenapp.auth.WebViewLogin">
+        android:name="ru.niktoizniotkyda.sgo_connectapp.auth.WebViewLogin">
         <action
             android:id="@+id/action_webViewLogin_to_gosuslugiResult"
             app:destination="@id/gosuslugiResult" />
@@ -13,5 +13,5 @@
 
     <fragment
         android:id="@+id/gosuslugiResult"
-        android:name="ru.niktoizniotkyda.netschooltokenapp.auth.GosuslugiResult" />
+        android:name="ru.niktoizniotkyda.sgo_connectapp.auth.GosuslugiResult" />
 </navigation>

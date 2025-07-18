@@ -4,7 +4,7 @@
     android:id="@+id/login_navigation">
     <fragment
         android:id="@+id/chooseUserIdFragment"
-        android:name="ru.niktoizniotkyda.netschooltokenapp.auth.ChooseUserIdFragment"
+        android:name="ru.niktoizniotkyda.sgo_connectapp.auth.ChooseUserIdFragment"
         android:label="Выбери пользователя">
         <action
             android:id="@+id/action_chooseUserIdFragment_to_mainActivity"
@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/gosuslugiResultFragment"
-        android:name="ru.niktoizniotkyda.netschooltokenapp.auth.GosuslugiResult"
+        android:name="ru.niktoizniotkyda.sgo_connectapp.auth.GosuslugiResult"
         android:label="" >
         <action
             android:id="@+id/action_gosuslugiResultFragment_to_chooseUserIdFragment"

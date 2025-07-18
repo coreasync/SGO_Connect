@@ -9,4 +9,5 @@
     <color name="btn_warning_main_menu">#FFD740</color>
     <color name="btn_gen_token_main_menu">#8C9EFF</color>
     <color name="dialog_dim_background">#80000000</color>
+    <color name="divider">#353535</color>
 </resources>
